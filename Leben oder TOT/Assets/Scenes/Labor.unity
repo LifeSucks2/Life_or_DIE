@@ -226,6 +226,7 @@ GameObject:
   - component: {fileID: 41890075}
   - component: {fileID: 41890078}
   - component: {fileID: 41890077}
+  - component: {fileID: 41890074}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -233,6 +234,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &41890074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 41890073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f630fa1f78435043bd5c115912619b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 20
 --- !u!4 &41890075
 Transform:
   m_ObjectHideFlags: 0
@@ -1760,6 +1774,11 @@ PrefabInstance:
       propertyPath: jumpForce
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 114985937948325432, guid: b9ca752c3df4dec4cadafd04fc5d444b,
+        type: 3}
+      propertyPath: fpsCam
+      value: 
+      objectReference: {fileID: 970328756}
     - target: {fileID: 167360675053877760, guid: b9ca752c3df4dec4cadafd04fc5d444b,
         type: 3}
       propertyPath: m_MaxDistance
@@ -2167,6 +2186,12 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!20 &970328756 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 20176831017129482, guid: b9ca752c3df4dec4cadafd04fc5d444b,
+    type: 3}
+  m_PrefabInstance: {fileID: 514539194}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &998013328
 PrefabInstance:
   m_ObjectHideFlags: 0
