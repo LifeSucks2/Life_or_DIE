@@ -268,6 +268,9 @@ namespace FPSControllerLPFP
                 {
                     target.TakeDamage(damage);
                 }
+                else{
+                    print("Target == null");
+                }
             }
         }
 
