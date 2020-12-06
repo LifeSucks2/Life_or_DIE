@@ -34,7 +34,8 @@ public class DetectScript : MonoBehaviour
         }
     }
     private void OnTriggerEnter(Collider other){
-        if(other.tag == "Player"){
+        if(other.tag == "Player")
+        {
             detected = true;
             target = other.gameObject;
             print(Vector3.Distance(transform.position, target.transform.position));
@@ -44,5 +45,21 @@ public class DetectScript : MonoBehaviour
         GameObject currentBullet = Instantiate(bullet,shootPoint.transform.position, shootPoint.transform.rotation);
         Rigidbody rig = currentBullet.GetComponent<Rigidbody>();
         rig.AddForce(transform.forward * shootSpeed, ForceMode.VelocityChange);
+
+
+      /*  
+        RaycastHit hit;
+        PlayerVitals pv;
+
+        if (Physics.Raycast(transform.position, transform.forward, out hit))
+        {
+            if (hit.transform.tag == "Player")
+            {
+                PlayerVitals pv = hit.transform.GetComponent<PlayerVitals>();
+                pv.TakeDamage(10);
+            }
+        }*/
+        
+        
     }
 }
