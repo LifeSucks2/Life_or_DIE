@@ -121,37 +121,48 @@ namespace FPSControllerLPFP
         /// Checks if the character is on the ground.
         private void OnCollisionStay()
         {
-            var bounds = _collider.bounds;
-            var extents = bounds.extents;
-            var radius = extents.x - 0.01f;
-            Physics.SphereCastNonAlloc(bounds.center, radius, Vector3.down,
-                _groundCastResults, extents.y - radius * 0.5f, ~0, QueryTriggerInteraction.Ignore);
-            if (!_groundCastResults.Any(hit => hit.collider != null && hit.collider != _collider)) return;
-            for (var i = 0; i < _groundCastResults.Length; i++)
+            if (!MenuScript.isGamePaused)
             {
-                _groundCastResults[i] = new RaycastHit();
-            }
+                var bounds = _collider.bounds;
+                var extents = bounds.extents;
+                var radius = extents.x - 0.01f;
+                Physics.SphereCastNonAlloc(bounds.center, radius, Vector3.down,
+                    _groundCastResults, extents.y - radius * 0.5f, ~0, QueryTriggerInteraction.Ignore);
+                if (!_groundCastResults.Any(hit => hit.collider != null && hit.collider != _collider)) return;
+                for (var i = 0; i < _groundCastResults.Length; i++)
+                {
+                    _groundCastResults[i] = new RaycastHit();
+                }
 
-            _isGrounded = true;
+                _isGrounded = true;
+            }
+            
         }
 
         /// Processes the character movement and the camera rotation every fixed framerate frame.
         private void FixedUpdate()
         {
-            // FixedUpdate is used instead of Update because this code is dealing with physics and smoothing.
-            RotateCameraAndCharacter();
-            MoveCharacter();
-            _isGrounded = false;
+            if (!MenuScript.isGamePaused)
+            {
+                // FixedUpdate is used instead of Update because this code is dealing with physics and smoothing.
+                RotateCameraAndCharacter();
+                MoveCharacter();
+                _isGrounded = false;
+            }
+            
         }
 
         /// Moves the camera to the character, processes jumping and plays sounds every frame.
         private void Update()
         {
-            arms.position = transform.position + transform.TransformVector(armPosition);
-            Jump();
-            PlayFootstepSounds();
-            if (Input.GetButtonDown("Fire1"))//left click
-                Shoot();
+            if (!MenuScript.isGamePaused)
+            {
+                arms.position = transform.position + transform.TransformVector(armPosition);
+                Jump();
+                PlayFootstepSounds();
+                if (Input.GetButtonDown("Fire1"))//left click
+                    Shoot();
+            }
         }
 
         private void RotateCameraAndCharacter()
