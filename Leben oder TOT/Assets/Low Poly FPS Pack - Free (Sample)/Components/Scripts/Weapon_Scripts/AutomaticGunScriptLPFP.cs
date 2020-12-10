@@ -67,6 +67,7 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 
 	//How much ammo is currently left
 	private int currentAmmo;
+	private const int magazinGröße = 30;
 	//Totalt amount of ammo
 	[Tooltip("How much ammo the weapon should have.")]
 	public int ammo;
@@ -114,8 +115,8 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 	public AudioSource shootAudioSource;
 
 	[Header("UI Components")]
-	public Text timescaleText;
-	public Text currentWeaponText;
+	//public Text timescaleText;
+	//public Text currentWeaponText;
 	public Text currentAmmoText;
 	public Text totalAmmoText;
 
@@ -163,7 +164,7 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 		//Set the animator component
 		anim = GetComponent<Animator>();
 		//Set current ammo to total ammo value
-		currentAmmo = ammo;
+		//currentAmmo = magazinGröße;
 
 		muzzleflashLight.enabled = false;
 	}
@@ -173,10 +174,10 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 		//Save the weapon name
 		storedWeaponName = weaponName;
 		//Get weapon name from string to text
-		currentWeaponText.text = weaponName;
+		//currentWeaponText.text = weaponName;
 		//Set total ammo text from total ammo int
 		totalAmmoText.text = ammo.ToString();
-
+		currentAmmo = magazinGröße;
 		//Weapon sway
 		initialSwayPosition = transform.localPosition;
 
@@ -253,31 +254,31 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.Alpha1)) 
 		{
 			Time.timeScale = 1.0f;
-			timescaleText.text = "1.0";
+			//timescaleText.text = "1.0";
 		}
 		//Change timesccale to 50% when 2 key is pressed
 		if (Input.GetKeyDown (KeyCode.Alpha2)) 
 		{
 			Time.timeScale = 0.5f;
-			timescaleText.text = "0.5";
+			//timescaleText.text = "0.5";
 		}
 		//Change timescale to 25% when 3 key is pressed
 		if (Input.GetKeyDown (KeyCode.Alpha3)) 
 		{
 			Time.timeScale = 0.25f;
-			timescaleText.text = "0.25";
+			//timescaleText.text = "0.25";
 		}
 		//Change timescale to 10% when 4 key is pressed
 		if (Input.GetKeyDown (KeyCode.Alpha4)) 
 		{
 			Time.timeScale = 0.1f;
-			timescaleText.text = "0.1";
+			//timescaleText.text = "0.1";
 		}
 		//Pause game when 5 key is pressed
 		if (Input.GetKeyDown (KeyCode.Alpha5)) 
 		{
 			Time.timeScale = 0.0f;
-			timescaleText.text = "0.0";
+			//timescaleText.text = "0.0";
 		}
 
 		//Set current ammo text from ammo int
@@ -310,7 +311,7 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 		if (currentAmmo == 0) 
 		{
 			//Show out of ammo text
-			currentWeaponText.text = "OUT OF AMMO";
+			//currentWeaponText.text = "OUT OF AMMO";
 			//Toggle bool
 			outOfAmmo = true;
 			//Auto reload if true
@@ -322,7 +323,7 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 		else 
 		{
 			//When ammo is full, show weapon name again
-			currentWeaponText.text = storedWeaponName.ToString ();
+			//currentWeaponText.text = storedWeaponName.ToString ();
 			//Toggle bool
 			outOfAmmo = false;
 			//anim.SetBool ("Out Of Ammo", false);
@@ -459,7 +460,10 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.R) && !isReloading && !isInspecting) 
 		{
 			//Reload
-			Reload ();
+			if(ammo > 0 && currentAmmo < magazinGröße){
+				Reload ();
+			}
+			
 		}
 
 		//Walking when pressing down WASD keys
@@ -525,7 +529,7 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 			}
 		} 
 		//Restore ammo when reloading
-		currentAmmo = ammo;
+		currentAmmo = magazinGröße;
 		outOfAmmo = false;
 	}
 
@@ -536,7 +540,15 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 		{
 			//Play diff anim if out of ammo
 			anim.Play ("Reload Out Of Ammo", 0, 0f);
-
+			if(ammo >= magazinGröße){
+				ammo -= magazinGröße;
+				CheckReloading();
+			}
+			else{
+				ammo = 0; 
+			}
+			
+			//print("Ammo: " + ammo);
 			mainAudioSource.clip = SoundClips.reloadSoundOutOfAmmo;
 			mainAudioSource.Play ();
 
@@ -550,11 +562,18 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 				StartCoroutine (ShowBulletInMag ());
 			}
 		} 
-		else 
+		else
 		{
 			//Play diff anim if ammo left
 			anim.Play ("Reload Ammo Left", 0, 0f);
-
+			if(ammo >= currentAmmo){
+				ammo -= (magazinGröße - currentAmmo);
+				CheckReloading();
+			}
+			else{
+				ammo = 0;
+			}
+			
 			mainAudioSource.clip = SoundClips.reloadSoundAmmoLeft;
 			mainAudioSource.Play ();
 
@@ -567,8 +586,24 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 			}
 		}
 		//Restore ammo when reloading
-		currentAmmo = ammo;
-		outOfAmmo = false;
+		totalAmmoText.text = ammo.ToString();
+		
+		
+	}
+	void CheckReloading(){
+		if(ammo > 0){
+			if(ammo >= magazinGröße){
+				currentAmmo = magazinGröße;
+			}
+			else{
+				currentAmmo = ammo;
+				print("falsche stelle");
+			}
+			outOfAmmo = false;
+		}
+		else{
+			outOfAmmo = true;
+		}
 	}
 
 	//Enable bullet in mag renderer after set amount of time

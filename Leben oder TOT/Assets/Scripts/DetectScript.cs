@@ -38,28 +38,13 @@ public class DetectScript : MonoBehaviour
         {
             detected = true;
             target = other.gameObject;
-            print(Vector3.Distance(transform.position, target.transform.position));
+            //print(Vector3.Distance(transform.position, target.transform.position));
         }
     }
+    //PlayerVitals pv = new PlayerVitals();
     private void ShootPlayer(){
         GameObject currentBullet = Instantiate(bullet,shootPoint.transform.position, shootPoint.transform.rotation);
         Rigidbody rig = currentBullet.GetComponent<Rigidbody>();
         rig.AddForce(transform.forward * shootSpeed, ForceMode.VelocityChange);
-
-
-      /*  
-        RaycastHit hit;
-        PlayerVitals pv;
-
-        if (Physics.Raycast(transform.position, transform.forward, out hit))
-        {
-            if (hit.transform.tag == "Player")
-            {
-                PlayerVitals pv = hit.transform.GetComponent<PlayerVitals>();
-                pv.TakeDamage(10);
-            }
-        }*/
-        
-        
     }
 }
