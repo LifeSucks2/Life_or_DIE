@@ -542,10 +542,12 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 			anim.Play ("Reload Out Of Ammo", 0, 0f);
 			if(ammo >= magazinGröße){
 				ammo -= magazinGröße;
-				CheckReloading();
+				currentAmmo = magazinGröße;
+				
 			}
 			else{
-				ammo = 0; 
+				currentAmmo = ammo;
+				ammo = 0;
 			}
 			
 			//print("Ammo: " + ammo);
@@ -568,9 +570,11 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 			anim.Play ("Reload Ammo Left", 0, 0f);
 			if(ammo >= currentAmmo){
 				ammo -= (magazinGröße - currentAmmo);
-				CheckReloading();
+				currentAmmo = magazinGröße;
+				
 			}
 			else{
+				currentAmmo = ammo;
 				ammo = 0;
 			}
 			
@@ -589,21 +593,6 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 		totalAmmoText.text = ammo.ToString();
 		
 		
-	}
-	void CheckReloading(){
-		if(ammo > 0){
-			if(ammo >= magazinGröße){
-				currentAmmo = magazinGröße;
-			}
-			else{
-				currentAmmo = ammo;
-				print("falsche stelle");
-			}
-			outOfAmmo = false;
-		}
-		else{
-			outOfAmmo = true;
-		}
 	}
 
 	//Enable bullet in mag renderer after set amount of time

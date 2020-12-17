@@ -23,13 +23,11 @@ public class DetectScript : MonoBehaviour
     void Update(){
         if(detected){
             enemy.LookAt(target.transform);
-            if(Vector3.Distance(enemy.position, target.transform.position) <= seeingDistance){
-                enemy.position = Vector3.MoveTowards(enemy.position, target.transform.position, walkSpeed * Time.deltaTime);
-                timeToShoot -= Time.deltaTime;
-                if(timeToShoot < 0){
-                    ShootPlayer();
-                    timeToShoot = orginaltime;
-                }
+            enemy.position = Vector3.MoveTowards(enemy.position, target.transform.position, walkSpeed * Time.deltaTime);
+            timeToShoot -= Time.deltaTime;
+            if(timeToShoot < 0){
+                ShootPlayer();
+                timeToShoot = orginaltime;   
             }  
         }
     }
