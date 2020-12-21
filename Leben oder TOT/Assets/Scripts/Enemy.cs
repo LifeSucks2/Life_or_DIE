@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
 
+
 public class Enemy : MonoBehaviour
 {
+    public PlayerVitals pv;
     public float health = 50f;
     [SerializeField] private AudioClip damageSound;
     public void TakeDamage(float amount)
@@ -15,6 +17,7 @@ public class Enemy : MonoBehaviour
         if (health <= 0f)
         {
             Die();
+            pv.points += 100;
         }
     }
 

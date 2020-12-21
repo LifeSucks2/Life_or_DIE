@@ -7,25 +7,66 @@ using UnityEngine.Audio;
 
 public class MenuScript : MonoBehaviour
 {
-    public static bool isGameStarted = false;
+    public static bool isGameStarted = true;
     public static bool isGamePaused = false;
+    public static bool isBuyMenuOpened = false;
 
     public GameObject pauseMenu;
+    public GameObject buyMenu;
 
     public AudioMixer audioMixer;
 
+    public PlayerVitals pv;
+    public Slider posionLevel;
     // Update is called once per frame
     void Update()
     {
-        if (isGameStarted && Input.GetKeyDown(KeyCode.Escape))
+        if (isGameStarted)
         {
-            if (isGamePaused)
-            ResumeGame();
-            else 
-            PauseGame();
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                if (isBuyMenuOpened) return;
+               
+                if (isGamePaused)
+                ResumeGame();
+                else 
+                PauseGame();
+            }
+            if (Input.GetKeyDown(KeyCode.M))
+            {
+                // Never allow the Buy menu to open if the game is paused
+                if (isGamePaused)  return;
+                
+                else if (!isGamePaused && !isBuyMenuOpened)
+                {
+                    isBuyMenuOpened = true;
+                    buyMenu.SetActive(true);
+                }
+                else if (!isGamePaused && isBuyMenuOpened)
+                {
+                    isBuyMenuOpened = false;
+                    buyMenu.SetActive(false);
+                }
+            }
         }
-
     }
+
+    // Buy Menu START
+    public void buyHealthPack()
+    {
+        if (pv.points >= 500)
+        {
+           pv.points -= 500;
+           posionLevel.value -= 0.5f; 
+        }
+        else
+        Debug.Log("Not enough Money"); // SHow the user!
+    }
+
+    public void buyAmmo()
+    {
+    }
+    // Buy Menu END
 
     public void StartGame()
     {
@@ -55,6 +96,7 @@ public class MenuScript : MonoBehaviour
 
     public void ResumeGame()
     {
+        Debug.Log("Res");
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
         isGamePaused = false;

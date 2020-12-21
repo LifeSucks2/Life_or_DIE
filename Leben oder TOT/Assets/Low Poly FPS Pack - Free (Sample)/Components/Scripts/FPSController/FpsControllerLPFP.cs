@@ -121,7 +121,7 @@ namespace FPSControllerLPFP
         /// Checks if the character is on the ground.
         private void OnCollisionStay()
         {
-            if (!MenuScript.isGamePaused)
+            if (!(MenuScript.isGamePaused || MenuScript.isBuyMenuOpened))
             {
                 var bounds = _collider.bounds;
                 var extents = bounds.extents;
@@ -142,7 +142,7 @@ namespace FPSControllerLPFP
         /// Processes the character movement and the camera rotation every fixed framerate frame.
         private void FixedUpdate()
         {
-            if (!MenuScript.isGamePaused)
+            if (!(MenuScript.isGamePaused || MenuScript.isBuyMenuOpened))
             {
                 // FixedUpdate is used instead of Update because this code is dealing with physics and smoothing.
                 RotateCameraAndCharacter();
@@ -155,7 +155,7 @@ namespace FPSControllerLPFP
         /// Moves the camera to the character, processes jumping and plays sounds every frame.
         private void Update()
         {
-            if (!MenuScript.isGamePaused)
+            if (!(MenuScript.isGamePaused || MenuScript.isBuyMenuOpened))
             {
                 arms.position = transform.position + transform.TransformVector(armPosition);
                 Jump();
@@ -277,6 +277,7 @@ namespace FPSControllerLPFP
 
                 if (target != null) // If the component is an enemy 
                 {
+                    print("asd");
                     target.TakeDamage(damage);
                 }
                 else{
