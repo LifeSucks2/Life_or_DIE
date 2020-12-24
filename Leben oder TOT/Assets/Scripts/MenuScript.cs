@@ -25,12 +25,13 @@ public class MenuScript : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Escape))
             {
-                if (isBuyMenuOpened) return;
+              /*  if (isBuyMenuOpened) return;
                
                 if (isGamePaused)
                 ResumeGame();
                 else 
                 PauseGame();
+                */
             }
             if (Input.GetKeyDown(KeyCode.M))
             {
@@ -65,6 +66,13 @@ public class MenuScript : MonoBehaviour
 
     public void buyAmmo()
     {
+        if (pv.points >= 300)
+        {
+            pv.points -= 300;
+            AutomaticGunScriptLPFP.currentAmmo += 30;       // Burası yanlış.. Ammo variablesi kullanılacak!
+        }
+        else
+        Debug.Log("Not enough Money"); // SHow the user!    
     }
     // Buy Menu END
 

@@ -582,7 +582,7 @@ MonoBehaviour:
   pauseMenu: {fileID: 1698505726}
   buyMenu: {fileID: 1352985052}
   audioMixer: {fileID: 0}
-  pv: {fileID: 1636588097}
+  pv: {fileID: 0}
   posionLevel: {fileID: 0}
 --- !u!114 &289468675
 MonoBehaviour:
@@ -3572,42 +3572,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fcb78ff1078071408bbf4f31e891667, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pv: {fileID: 1636588097}
+  pv: {fileID: 0}
   health: 50
   damageSound: {fileID: 0}
---- !u!1 &1636588091 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4803870766752165230, guid: 8c3051fd60762044fb20be170ddff414,
-    type: 3}
-  m_PrefabInstance: {fileID: 1688258082}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1636588097
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1636588091}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7af48db8e83b7fa4fba358301e0ad9eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  points: 1000
-  health: 50
-  playerHealth: {fileID: 1462098343}
---- !u!114 &1636588098
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1636588091}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8efd2d1dc04c2dc4c94608d9ee3c105f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1688258082
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3615,6 +3582,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -8651455656055348396, guid: 8c3051fd60762044fb20be170ddff414,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4733677865802847758, guid: 8c3051fd60762044fb20be170ddff414,
         type: 3}
       propertyPath: m_LocalPosition.z
@@ -3679,6 +3651,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Assault_Rifle_01_FPSController Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 4842519147029100712, guid: 8c3051fd60762044fb20be170ddff414,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4843991272480473918, guid: 8c3051fd60762044fb20be170ddff414,
         type: 3}
@@ -4377,5 +4354,6 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 96461460357082231, guid: f10c5be8e4bc3994b98365072b0ed99f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f10c5be8e4bc3994b98365072b0ed99f, type: 3}

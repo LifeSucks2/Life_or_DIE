@@ -66,7 +66,7 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 	private bool isInspecting;
 
 	//How much ammo is currently left
-	private int currentAmmo;
+	static public int currentAmmo;
 	private const int magazinGröße = 30;
 	//Totalt amount of ammo
 	[Tooltip("How much ammo the weapon should have.")]
@@ -83,9 +83,6 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 	public float showBulletInMagDelay = 0.6f;
 	[Tooltip("The bullet model inside the mag, not used for all weapons.")]
 	public SkinnedMeshRenderer bulletInMagRenderer;
-
-	[Header("Grenade Settings")]
-	public float grenadeSpawnDelay = 0.35f;
 
 	[Header("Muzzleflash Settings")]
 	public bool randomMuzzleflash = false;
@@ -119,6 +116,7 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 	//public Text currentWeaponText;
 	public Text currentAmmoText;
 	public Text totalAmmoText;
+	
 
 	[System.Serializable]
 	public class prefabs
@@ -126,7 +124,6 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 		[Header("Prefabs")]
 		public Transform bulletPrefab;
 		public Transform casingPrefab;
-		public Transform grenadePrefab;
 	}
 	public prefabs Prefabs;
 	
@@ -140,8 +137,6 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 		public Transform casingSpawnPoint;
 		//Bullet prefab spawn from this point
 		public Transform bulletSpawnPoint;
-
-		public Transform grenadeSpawnPoint;
 	}
 	public spawnpoints Spawnpoints;
 
@@ -291,26 +286,7 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 			//Continosuly check which animation 
 			//is currently playing
 			AnimationCheck ();
-
-			//Play knife attack 1 animation when Q key is pressed
-			if (Input.GetKeyDown (KeyCode.Q) && !isInspecting) 
-			{
-				anim.Play ("Knife Attack 1", 0, 0f);
-			}
-			//Play knife attack 2 animation when F key is pressed
-			if (Input.GetKeyDown (KeyCode.F) && !isInspecting) 
-			{
-				anim.Play ("Knife Attack 2", 0, 0f);
-			}
 				
-			//Throw grenade when pressing G key
-			if (Input.GetKeyDown (KeyCode.G) && !isInspecting) 
-			{
-				StartCoroutine (GrenadeSpawnDelay ());
-				//Play grenade throw animation
-				anim.Play("GrenadeThrow", 0, 0.0f);
-			}
-
 			//If out of ammo
 			if (currentAmmo == 0) 
 			{
@@ -431,35 +407,6 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 				anim.SetTrigger ("Inspect");
 			}
 
-			//Toggle weapon holster when E key is pressed
-			if (Input.GetKeyDown (KeyCode.E) && !hasBeenHolstered) 
-			{
-				holstered = true;
-
-				mainAudioSource.clip = SoundClips.holsterSound;
-				mainAudioSource.Play();
-
-				hasBeenHolstered = true;
-			} 
-			else if (Input.GetKeyDown (KeyCode.E) && hasBeenHolstered) 
-			{
-				holstered = false;
-
-				mainAudioSource.clip = SoundClips.takeOutSound;
-				mainAudioSource.Play ();
-
-				hasBeenHolstered = false;
-			}
-			//Holster anim toggle
-			if (holstered == true) 
-			{
-				anim.SetBool ("Holster", true);
-			} 
-			else 
-			{
-				anim.SetBool ("Holster", false);
-			}
-
 			//Reload 
 			if (Input.GetKeyDown (KeyCode.R) && !isReloading && !isInspecting) 
 			{
@@ -467,7 +414,6 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 				if(ammo > 0 && currentAmmo < magazinGröße){
 					Reload ();
 				}
-				
 			}
 
 			//Walking when pressing down WASD keys
@@ -499,16 +445,6 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 				anim.SetBool ("Run", false);
 			}
 		}
-	}
-
-	private IEnumerator GrenadeSpawnDelay () {
-		
-		//Wait for set amount of time before spawning grenade
-		yield return new WaitForSeconds (grenadeSpawnDelay);
-		//Spawn grenade prefab at spawnpoint
-		Instantiate(Prefabs.grenadePrefab, 
-			Spawnpoints.grenadeSpawnPoint.transform.position, 
-			Spawnpoints.grenadeSpawnPoint.transform.rotation);
 	}
 
 	private IEnumerator AutoReload () {
