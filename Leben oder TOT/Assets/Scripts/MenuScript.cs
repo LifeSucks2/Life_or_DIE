@@ -9,6 +9,7 @@ public class MenuScript : MonoBehaviour
 {
     public static bool isGameStarted = true;
     public static bool isGamePaused = false;
+    public static bool GameResumer = false;
     public static bool isBuyMenuOpened = false;
 
     public GameObject pauseMenu;
@@ -19,19 +20,28 @@ public class MenuScript : MonoBehaviour
     public PlayerVitals pv;
     public Slider posionLevel;
     // Update is called once per frame
+    //GameObject[] pauseObjects;
+    void Start(){
+        Time.timeScale = 1;
+		//pauseObjects = Object.FindObjectsOfTypeAll;
+    }
     void Update()
     {
         if (isGameStarted)
         {
             if (Input.GetKeyDown(KeyCode.Escape))
             {
-              /*  if (isBuyMenuOpened) return;
+                isGamePaused = true;
+                //if (isBuyMenuOpened) return;
                
-                if (isGamePaused)
-                ResumeGame();
-                else 
-                PauseGame();
-                */
+                if (isGamePaused == true){
+                    if(GameResumer == true){
+                        ResumeGame();
+                    }
+                    else{
+                        PauseGame();
+                    }
+                }
             }
             if (Input.GetKeyDown(KeyCode.M))
             {
@@ -108,13 +118,16 @@ public class MenuScript : MonoBehaviour
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
         isGamePaused = false;
+        GameResumer = false;
     }
 
     void PauseGame()
     {
         pauseMenu.SetActive(true);
-        Time.timeScale = 1f;
-        isGamePaused = true;
+        Time.timeScale = 0f;
+        isGamePaused = false;
+        GameResumer = true;
+        GetComponent<ParticleSystem>().Pause();
     }
 
     public void QuitGame()

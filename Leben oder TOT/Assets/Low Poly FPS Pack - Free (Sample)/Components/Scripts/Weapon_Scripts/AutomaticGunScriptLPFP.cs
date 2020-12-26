@@ -7,6 +7,7 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 
 	//Animator component attached to weapon
 	Animator anim;
+	//public Camera fpsCam;
 
 	[Header("Gun Camera")]
 	//Main gun camera
@@ -72,7 +73,7 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 	[Tooltip("How much ammo the weapon should have.")]
 	public int ammo;
 	//Check if out of ammo
-	private bool outOfAmmo;
+	public bool outOfAmmo;
 
 	[Header("Bullet Settings")]
 	//Bullet
@@ -116,7 +117,8 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 	//public Text currentWeaponText;
 	public Text currentAmmoText;
 	public Text totalAmmoText;
-	
+	public float damage = 10f;
+	public float range = 1f;
 
 	[System.Serializable]
 	public class prefabs
@@ -383,22 +385,24 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 							}
 						}
 					}
-
+				
 					//Spawn bullet from bullet spawnpoint
-					var bullet = (Transform)Instantiate (
+					/*var bullet = (Transform)Instantiate (
 						Prefabs.bulletPrefab,
 						Spawnpoints.bulletSpawnPoint.transform.position,
 						Spawnpoints.bulletSpawnPoint.transform.rotation);
 
 					//Add velocity to the bullet
-					bullet.GetComponent<Rigidbody>().velocity = 
-						bullet.transform.forward * bulletForce;
+					/*bullet.GetComponent<Rigidbody>().velocity = 
+						bullet.transform.forward * bulletForce;*/
 					
 					//Spawn casing prefab at spawnpoint
-					Instantiate (Prefabs.casingPrefab, 
+					/*Instantiate (Prefabs.casingPrefab, 
 						Spawnpoints.casingSpawnPoint.transform.position, 
-						Spawnpoints.casingSpawnPoint.transform.rotation);
+						Spawnpoints.casingSpawnPoint.transform.rotation);*/
 				}
+				
+			Shoot();		
 			}
 
 			//Inspect weapon when T key is pressed
@@ -579,5 +583,25 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 			}
 		}
 	}
+	
+
+	private void Shoot()
+        {
+            RaycastHit hit;
+            if (Physics.Raycast(gunCamera.transform.position, gunCamera.transform.forward, out hit, range))
+            {
+                Enemy target = hit.transform.GetComponent<Enemy>();
+
+                if (target != null) // If the component is an enemy 
+                {
+                    //print("asd");
+                    //print(target.transform.tag);
+                    target.TakeDamage(damage);
+                }
+                else{
+                    print("Target == null");
+                }
+            }
+        }
 }
 // ----- Low Poly FPS Pack Free Version -----

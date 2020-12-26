@@ -8,21 +8,24 @@ public class Enemy : MonoBehaviour
     [SerializeField] private AudioClip damageSound;
     public void TakeDamage(float amount)
     {
-        health -= amount;
-        AudioSource.PlayClipAtPoint(damageSound, Camera.main.transform.position, 1000f);
-        if(gameObject.transform.tag != "Detect Area"){
-            gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, Camera.main.transform.position, -6f);
-        }
-        
         if (health <= 0f)
         {
             Die();
             pv.points += 100;
         }
+        else if(gameObject.transform.tag != "Detect Area"){
+            gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, Camera.main.transform.position, -0.1f);
+        }
+        health -= amount;
+        AudioSource.PlayClipAtPoint(damageSound, Camera.main.transform.position, 1000f);
+        
+        
+        
     }
 
     void Die()
     {
+        //print("in die 'Die' fkt");
         Destroy(gameObject);
     }
 }

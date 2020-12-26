@@ -2,8 +2,8 @@
 using System.Linq;
 using UnityEngine;
 
-namespace FPSControllerLPFP
-{
+//namespace FPSControllerLPFP
+//{
     /// Manages a first person character
     [RequireComponent(typeof(Rigidbody))]
     [RequireComponent(typeof(CapsuleCollider))]
@@ -160,8 +160,10 @@ namespace FPSControllerLPFP
                 arms.position = transform.position + transform.TransformVector(armPosition);
                 Jump();
                 PlayFootstepSounds();
-                if (Input.GetButtonDown("Fire1"))//left click
+                /*if (Input.GetButtonDown("Fire1") ){
+                    //left click
                     Shoot();
+                }*/
             }
         }
 
@@ -277,7 +279,8 @@ namespace FPSControllerLPFP
 
                 if (target != null) // If the component is an enemy 
                 {
-                    print("asd");
+                    //print("asd");
+                    //print(target.transform.tag);
                     target.TakeDamage(damage);
                 }
                 else{
@@ -411,4 +414,4 @@ namespace FPSControllerLPFP
             }
         }
     }
-}
+//}
