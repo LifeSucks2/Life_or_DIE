@@ -391,7 +391,6 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 						Prefabs.bulletPrefab,
 						Spawnpoints.bulletSpawnPoint.transform.position,
 						Spawnpoints.bulletSpawnPoint.transform.rotation);
-
 					//Add velocity to the bullet
 					/*bullet.GetComponent<Rigidbody>().velocity = 
 						bullet.transform.forward * bulletForce;*/

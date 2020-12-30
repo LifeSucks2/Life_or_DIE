@@ -19,6 +19,8 @@ public class MenuScript : MonoBehaviour
 
     public PlayerVitals pv;
     public Slider posionLevel;
+
+    public Text points;
     // Update is called once per frame
     //GameObject[] pauseObjects;
     void Start(){
@@ -32,8 +34,8 @@ public class MenuScript : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Escape))
             {
                 isGamePaused = true;
-                //if (isBuyMenuOpened) return;
-               
+                Screen.lockCursor = false;
+
                 if (isGamePaused == true){
                     if(GameResumer == true){
                         ResumeGame();
@@ -45,6 +47,7 @@ public class MenuScript : MonoBehaviour
             }
             if (Input.GetKeyDown(KeyCode.M))
             {
+                points.text = pv.points.ToString();
                 // Never allow the Buy menu to open if the game is paused
                 if (isGamePaused)  return;
                 
@@ -52,11 +55,13 @@ public class MenuScript : MonoBehaviour
                 {
                     isBuyMenuOpened = true;
                     buyMenu.SetActive(true);
+                    Screen.lockCursor = false;
                 }
                 else if (!isGamePaused && isBuyMenuOpened)
                 {
                     isBuyMenuOpened = false;
                     buyMenu.SetActive(false);
+                    Screen.lockCursor = true;
                 }
             }
         }
@@ -68,6 +73,7 @@ public class MenuScript : MonoBehaviour
         if (pv.points >= 500)
         {
            pv.points -= 500;
+           points.text = pv.points.ToString();
            posionLevel.value -= 0.5f; 
         }
         else
@@ -79,6 +85,7 @@ public class MenuScript : MonoBehaviour
         if (pv.points >= 300)
         {
             pv.points -= 300;
+            points.text = pv.points.ToString();
             AutomaticGunScriptLPFP.currentAmmo += 30;       // Burası yanlış.. Ammo variablesi kullanılacak!
         }
         else
@@ -114,11 +121,11 @@ public class MenuScript : MonoBehaviour
 
     public void ResumeGame()
     {
-        Debug.Log("Res");
+        Screen.lockCursor = true;
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
         isGamePaused = false;
-        GameResumer = false;
+        GameResumer = false;  
     }
 
     void PauseGame()
@@ -127,7 +134,7 @@ public class MenuScript : MonoBehaviour
         Time.timeScale = 0f;
         isGamePaused = false;
         GameResumer = true;
-        GetComponent<ParticleSystem>().Pause();
+    //    GetComponent<ParticleSystem>().Pause();
     }
 
     public void QuitGame()

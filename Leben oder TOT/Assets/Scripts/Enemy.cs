@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
-
+using UnityEngine.SceneManagement;
 
 public class Enemy : MonoBehaviour
 {
+    public GameObject door;
     public PlayerVitals pv;
     public float health = 50f;
     [SerializeField] private AudioClip damageSound;
@@ -17,15 +18,12 @@ public class Enemy : MonoBehaviour
             gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, Camera.main.transform.position, -0.1f);
         }
         health -= amount;
-        AudioSource.PlayClipAtPoint(damageSound, Camera.main.transform.position, 1000f);
-        
-        
-        
+        AudioSource.PlayClipAtPoint(damageSound, Camera.main.transform.position, 1000f);  
     }
 
     void Die()
     {
-        //print("in die 'Die' fkt");
         Destroy(gameObject);
+        Destroy(door);
     }
 }
