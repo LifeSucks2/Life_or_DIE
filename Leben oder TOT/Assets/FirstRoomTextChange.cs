@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class FirstRoomTextChange : MonoBehaviour
 {
     public Text myText;
-    private bool w = true, a = true, s = true, d = true, space = true;
+    public bool w = true, a = true, s = true, d = true, space = true;
 
     // Start is called before the first frame update
     void Start()
@@ -61,7 +61,7 @@ public class FirstRoomTextChange : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.Space))
             {
-                myText.text = "Good Job";
+                myText.text = "";
                 space = false;
             }
         }
