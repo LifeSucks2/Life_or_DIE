@@ -30,8 +30,6 @@ public class FirstRoomTextChange : MonoBehaviour
        CheckWhereUserIsAt();
     }
 
-    
-
     void CheckWhereUserIsAt()
     {
         float playerX = player.transform.position.x;
@@ -172,7 +170,6 @@ public class FirstRoomTextChange : MonoBehaviour
     {
         myText.text = "Kill the enemies or walk past them. But there is the risk of not getting the ammo / healthpack which are hidden in the room. Your call..";
     }
-
 
     void Room9()
     {

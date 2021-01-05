@@ -7,13 +7,21 @@ using UnityEngine.Audio;
 
 public class MenuScript : MonoBehaviour
 {
-    public static bool isGameStarted = true;
+    public static bool isGameStarted = false;
     public static bool isGamePaused = false;
     public static bool GameResumer = false;
     public static bool isBuyMenuOpened = false;
 
     public GameObject pauseMenu;
     public GameObject buyMenu;
+
+    public Button hpB;
+    public Button amB;
+
+    // Tutorial
+    public Text headerText;
+    public Text myText;
+    // Tutorial End
 
     public AudioMixer audioMixer;
 
@@ -36,7 +44,8 @@ public class MenuScript : MonoBehaviour
                 isGamePaused = true;
                 Screen.lockCursor = false;
 
-                if (isGamePaused == true){
+                if (isGamePaused == true)
+                {
                     if(GameResumer == true){
                         ResumeGame();
                     }
@@ -64,6 +73,24 @@ public class MenuScript : MonoBehaviour
                     Screen.lockCursor = true;
                 }
             }
+
+            if (isBuyMenuOpened)
+            {
+                if (SceneManager.GetActiveScene().buildIndex == 1)
+                {
+                    // Disable the texts so we can see the market place better!
+                    headerText.enabled = false;
+                    myText.enabled = false;
+                }
+                if (pv.points < 500)
+                hpB.interactable = false;
+                if (pv.points < 300)
+                amB.interactable = false;
+            }else if ((!isBuyMenuOpened || !isGamePaused) && SceneManager.GetActiveScene().buildIndex == 1)
+            {
+                headerText.enabled = true;
+                myText.enabled = true;
+            }
         }
     }
 
@@ -72,24 +99,22 @@ public class MenuScript : MonoBehaviour
     {
         if (pv.points >= 500)
         {
+           hpB.interactable = true;
            pv.points -= 500;
            points.text = pv.points.ToString();
-           posionLevel.value -= 0.5f; 
+           posionLevel.value -= 0.5f;
         }
-        else
-        Debug.Log("Not enough Money"); // SHow the user!
     }
 
     public void buyAmmo()
     {
         if (pv.points >= 300)
         {
+            amB.interactable = true;
             pv.points -= 300;
             points.text = pv.points.ToString();
             AutomaticGunScriptLPFP.currentAmmo += 30;       // Burası yanlış.. Ammo variablesi kullanılacak!
         }
-        else
-        Debug.Log("Not enough Money"); // SHow the user!    
     }
     // Buy Menu END
 

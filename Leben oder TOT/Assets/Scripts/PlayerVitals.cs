@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerVitals : MonoBehaviour
 {
-    public int points = 1000;
+    public int points = 0;
     public float health = 50f;
     public Slider playerHealth;
 
