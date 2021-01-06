@@ -7,7 +7,7 @@ using UnityEngine.Audio;
 
 public class MenuScript : MonoBehaviour
 {
-    public static bool isGameStarted = false;
+    public static bool isGameStarted = true;
     public static bool isGamePaused = false;
     public static bool GameResumer = false;
     public static bool isBuyMenuOpened = false;

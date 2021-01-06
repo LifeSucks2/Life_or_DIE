@@ -18,9 +18,10 @@ public class Door : MonoBehaviour
     }
 
     void  OnTriggerEnter(Collider col){
-        if(col.CompareTag("door")){
+        print(col.tag);
+        /*if(col.CompareTag("Assault_Rifle_01_Arms")){
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        }
+        }*/
            
     }
 }

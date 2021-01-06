@@ -37,8 +37,10 @@ public class FirstRoomTextChange : MonoBehaviour
         float playerZ = player.transform.position.z;
         if (rooms[0] && playerX <= -37.5f && playerX >= -85f && playerY >= -64f && playerZ >= 59f)  // 1stRoom
             Room1();
-        if (rooms[1] && playerX <= -57f && playerY >= -64f && playerZ >= 103f)
-           Room2();
+        if (rooms[1] && playerX <= -57f && playerY >= -64f && playerZ >= 103f){
+            Room2();
+        }
+           
 
         if (playerX <= -76f && playerY >= -64f && playerZ >= 130f){
             rooms[1] = false;
@@ -98,7 +100,7 @@ public class FirstRoomTextChange : MonoBehaviour
         if (Ukeys[0] && Ukeys[1] && Ukeys[2] && Ukeys[3] && Ukeys[4]){
             Destroy(door);
             // Make headertext invisible
-            headerText.enabled = false;
+            
 
             rooms[0] = false;
             rooms[1] = true;
@@ -137,8 +139,8 @@ public class FirstRoomTextChange : MonoBehaviour
         }   
     }
 
-    void Room2()
-    {
+    void Room2(){
+        headerText.enabled = false;
         HUD.SetActive (true);
         myText.text = "These are your indicators";
     }

@@ -1,0 +1,199 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &373853848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4327070187469536677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7af48db8e83b7fa4fba358301e0ad9eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  points: 1000
+  health: 400
+  playerHealth: {fileID: 0}
+--- !u!1001 &9125999743529947339
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8651455656055348396, guid: 8c3051fd60762044fb20be170ddff414,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4733677865802847758, guid: 8c3051fd60762044fb20be170ddff414,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4801742232569966902, guid: 8c3051fd60762044fb20be170ddff414,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 7.4640827
+      objectReference: {fileID: 0}
+    - target: {fileID: 4801742232569966902, guid: 8c3051fd60762044fb20be170ddff414,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4801742232569966902, guid: 8c3051fd60762044fb20be170ddff414,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 23.564453
+      objectReference: {fileID: 0}
+    - target: {fileID: 4801742232569966902, guid: 8c3051fd60762044fb20be170ddff414,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4801742232569966902, guid: 8c3051fd60762044fb20be170ddff414,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4801742232569966902, guid: 8c3051fd60762044fb20be170ddff414,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4801742232569966902, guid: 8c3051fd60762044fb20be170ddff414,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4801742232569966902, guid: 8c3051fd60762044fb20be170ddff414,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4801742232569966902, guid: 8c3051fd60762044fb20be170ddff414,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4801742232569966902, guid: 8c3051fd60762044fb20be170ddff414,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4801742232569966902, guid: 8c3051fd60762044fb20be170ddff414,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4803870766752165230, guid: 8c3051fd60762044fb20be170ddff414,
+        type: 3}
+      propertyPath: m_Name
+      value: Assault_Rifle_01_FPSController Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 4842519147029100712, guid: 8c3051fd60762044fb20be170ddff414,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4843991272480473918, guid: 8c3051fd60762044fb20be170ddff414,
+        type: 3}
+      propertyPath: ammo
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 4843991272480473918, guid: 8c3051fd60762044fb20be170ddff414,
+        type: 3}
+      propertyPath: fpsCam
+      value: 
+      objectReference: {fileID: 4345173517284788305}
+    - target: {fileID: 4843991272480473918, guid: 8c3051fd60762044fb20be170ddff414,
+        type: 3}
+      propertyPath: bulletForce
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 4843991272480473918, guid: 8c3051fd60762044fb20be170ddff414,
+        type: 3}
+      propertyPath: fovSpeed
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4843991272480473918, guid: 8c3051fd60762044fb20be170ddff414,
+        type: 3}
+      propertyPath: range
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4843991272480473918, guid: 8c3051fd60762044fb20be170ddff414,
+        type: 3}
+      propertyPath: maxRandomValue
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4843991272480473918, guid: 8c3051fd60762044fb20be170ddff414,
+        type: 3}
+      propertyPath: enableMuzzleflash
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4843991272480473918, guid: 8c3051fd60762044fb20be170ddff414,
+        type: 3}
+      propertyPath: minSparkEmission
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4843991272480473918, guid: 8c3051fd60762044fb20be170ddff414,
+        type: 3}
+      propertyPath: maxSparkEmission
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4843991272480473918, guid: 8c3051fd60762044fb20be170ddff414,
+        type: 3}
+      propertyPath: fireRate
+      value: 11.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4843991272480473918, guid: 8c3051fd60762044fb20be170ddff414,
+        type: 3}
+      propertyPath: autoReload
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4843991272480473918, guid: 8c3051fd60762044fb20be170ddff414,
+        type: 3}
+      propertyPath: weaponSway
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4843991272480473918, guid: 8c3051fd60762044fb20be170ddff414,
+        type: 3}
+      propertyPath: enableSparks
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4843991272480473918, guid: 8c3051fd60762044fb20be170ddff414,
+        type: 3}
+      propertyPath: randomMuzzleflash
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4843991272480473918, guid: 8c3051fd60762044fb20be170ddff414,
+        type: 3}
+      propertyPath: bulletInMagRenderer
+      value: 
+      objectReference: {fileID: 4459418399318914119}
+    - target: {fileID: 4843991272480473918, guid: 8c3051fd60762044fb20be170ddff414,
+        type: 3}
+      propertyPath: damage
+      value: 5
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8c3051fd60762044fb20be170ddff414, type: 3}
+--- !u!1 &4327070187469536677 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4803870766752165230, guid: 8c3051fd60762044fb20be170ddff414,
+    type: 3}
+  m_PrefabInstance: {fileID: 9125999743529947339}
+  m_PrefabAsset: {fileID: 0}
+--- !u!20 &4345173517284788305 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 4822009538609240218, guid: 8c3051fd60762044fb20be170ddff414,
+    type: 3}
+  m_PrefabInstance: {fileID: 9125999743529947339}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &4459418399318914119 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 4847308072350524556, guid: 8c3051fd60762044fb20be170ddff414,
+    type: 3}
+  m_PrefabInstance: {fileID: 9125999743529947339}
+  m_PrefabAsset: {fileID: 0}

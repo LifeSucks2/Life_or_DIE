@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 public class PlayerVitals : MonoBehaviour
 {
     public int points = 0;
@@ -22,7 +22,7 @@ public class PlayerVitals : MonoBehaviour
 
         if (health <= 0f)
         {
-            Debug.Log("Dead");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
 
         playerHealth.value -= amount;
