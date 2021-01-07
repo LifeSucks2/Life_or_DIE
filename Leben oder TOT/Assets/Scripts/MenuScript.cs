@@ -14,6 +14,7 @@ public class MenuScript : MonoBehaviour
 
     public GameObject pauseMenu;
     public GameObject buyMenu;
+    public GameObject restartMenu;
 
     public Button hpB;
     public Button amB;
@@ -123,7 +124,6 @@ public class MenuScript : MonoBehaviour
         isGameStarted = true;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
-    
 
     public void SetVolume(float Volume)
     {
@@ -151,6 +151,24 @@ public class MenuScript : MonoBehaviour
         Time.timeScale = 1f;
         isGamePaused = false;
         GameResumer = false;  
+    }
+
+    
+    public void RestartGame()
+    {
+        Screen.lockCursor = true;
+        restartMenu.SetActive(false);
+        isGamePaused = false;
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+    
+    public void callME()
+    {
+        Screen.lockCursor = false;
+        restartMenu.SetActive(true);
+        Time.timeScale = 0f;
+        isGamePaused = true;
     }
 
     void PauseGame()

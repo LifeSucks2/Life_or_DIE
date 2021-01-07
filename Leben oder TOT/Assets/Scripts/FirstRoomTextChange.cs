@@ -10,6 +10,7 @@ public class FirstRoomTextChange : MonoBehaviour
     public GameObject player;
     public GameObject HUD;
 
+    bool visited = false;
     public Text headerText;
     public Text myText;
 
@@ -27,6 +28,11 @@ public class FirstRoomTextChange : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!visited)
+        headerText.enabled = true;
+        else 
+        headerText.enabled = false;
+
        CheckWhereUserIsAt();
     }
 
@@ -140,7 +146,8 @@ public class FirstRoomTextChange : MonoBehaviour
     }
 
     void Room2(){
-        headerText.enabled = false;
+        //headerText.enabled = false;
+        visited = true;
         HUD.SetActive (true);
         myText.text = "These are your indicators";
     }

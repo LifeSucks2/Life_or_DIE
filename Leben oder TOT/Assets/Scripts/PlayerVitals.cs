@@ -8,9 +8,11 @@ public class PlayerVitals : MonoBehaviour
     public int points = 0;
     public float health = 50f;
     public Slider playerHealth;
+    public MenuScript ms;
 
     void start()
     {
+        playerHealth.minValue = 0f;
         playerHealth.maxValue = health;
         playerHealth.value = health;
     }
@@ -20,15 +22,13 @@ public class PlayerVitals : MonoBehaviour
     {
         health -= amount;
 
-        if (health <= 0f)
+        if (playerHealth.value == 0f)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        }
-
-        playerHealth.value -= amount;
-
+            // Our player died !
+            ms.callME();
+        }else
+        {
+            playerHealth.value -= amount;
+        } 
     }
-
-
-
 }
