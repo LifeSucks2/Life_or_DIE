@@ -8,6 +8,8 @@ TagManager:
   - DetectArea
   - AfterJump
   - TestTag
+  - Bottle_Health
+  - Bottle_Antitoxin
   layers:
   - Default
   - TransparentFX
