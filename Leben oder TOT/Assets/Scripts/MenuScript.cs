@@ -11,6 +11,7 @@ public class MenuScript : MonoBehaviour
     public static bool isGamePaused = false;
     public static bool GameResumer = false;
     public static bool isBuyMenuOpened = false;
+    private int ammo1;
 
     public GameObject pauseMenu;
     public GameObject buyMenu;
@@ -25,6 +26,7 @@ public class MenuScript : MonoBehaviour
     // Tutorial End
 
     public AudioMixer audioMixer;
+    [SerializeField] GameObject player;
 
     public PlayerVitals pv;
     public Slider posionLevel;
@@ -114,7 +116,14 @@ public class MenuScript : MonoBehaviour
             amB.interactable = true;
             pv.points -= 300;
             points.text = pv.points.ToString();
-            AutomaticGunScriptLPFP.currentAmmo += 30;       // Burası yanlış.. Ammo variablesi kullanılacak!
+            //AutomaticGunScriptLPFP.currentAmmo += 30;       // Burası yanlış.. Ammo variablesi kullanılacak! //tmm bro anladim.
+            ammo1 = player.GetComponent<AutomaticGunScriptLPFP>().ammo;
+            ammo1 += 30;
+            if(ammo1 > 120){
+                ammo1 = 120;
+            }
+            player.GetComponent<AutomaticGunScriptLPFP>().ammo = ammo1;
+            player.GetComponent<AutomaticGunScriptLPFP>().totalAmmoText.text = ammo1.ToString();
         }
     }
     // Buy Menu END
@@ -177,7 +186,7 @@ public class MenuScript : MonoBehaviour
         Time.timeScale = 0f;
         isGamePaused = false;
         GameResumer = true;
-    //    GetComponent<ParticleSystem>().Pause();
+        GetComponent<ParticleSystem>().Pause();
     }
 
     public void QuitGame()

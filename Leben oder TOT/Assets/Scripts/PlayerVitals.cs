@@ -37,6 +37,16 @@ public class PlayerVitals : MonoBehaviour
         }
         if(poisen <= 1f){
             Toxin.value = poisen;
+            if (poisen <= 1f)
+            health -= 0.01f;
+            else if (poisen > 0 && poisen < 0.05f)
+            health -= 0.1f;
+            else if (poisen > 0.05f && poisen < 0.09f)
+            health -= 0.6f;
+            else if (poisen > 0.09f && poisen < 0.14f)
+            health -= 0.8f;
+            else
+            health -= 1f;
         }
         else{
             ms.callME();

@@ -10,6 +10,8 @@ TagManager:
   - TestTag
   - Bottle_Health
   - Bottle_Antitoxin
+  - box_ammo
+  - ammo_pick_up
   layers:
   - Default
   - TransparentFX

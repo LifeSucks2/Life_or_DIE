@@ -6,9 +6,9 @@ public class Enemy : MonoBehaviour
 {
     public GameObject door;
 
-    public const float maxHealth = 800f;
+    public const float maxHealth = 100f;
     public PlayerVitals pv;
-    public float health = 800f;
+    public float health = 100f;
     [SerializeField] private AudioClip damageSound;
     public GameObject healthBarUI;
     public Slider slider;
@@ -26,7 +26,6 @@ public class Enemy : MonoBehaviour
         healthBarUI.SetActive(true);
         if (health <= 0f)
         {
-            
             Die();
             pv.points += 100;
         }

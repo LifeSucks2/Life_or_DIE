@@ -2442,10 +2442,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   door: {fileID: 0}
   pv: {fileID: 373853848}
-  health: 100
+  health: 50
   damageSound: {fileID: 8300000, guid: 31b9bfacc282dec4f878eedbf7687270, type: 3}
   healthBarUI: {fileID: 1609709048}
   slider: {fileID: 200238209}
+  DieEffect: {fileID: 0}
 --- !u!1 &912407777
 GameObject:
   m_ObjectHideFlags: 0
@@ -3748,7 +3749,7 @@ PrefabInstance:
     - target: {fileID: 2719558574996011610, guid: f10c5be8e4bc3994b98365072b0ed99f,
         type: 3}
       propertyPath: m_Value
-      value: 800
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 2719558574996011610, guid: f10c5be8e4bc3994b98365072b0ed99f,
         type: 3}
@@ -4005,10 +4006,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   door: {fileID: 0}
   pv: {fileID: 373853848}
-  health: 100
+  health: 50
   damageSound: {fileID: 8300000, guid: 31b9bfacc282dec4f878eedbf7687270, type: 3}
   healthBarUI: {fileID: 1656535716}
   slider: {fileID: 877166768}
+  DieEffect: {fileID: 0}
 --- !u!1 &1609709048 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2840431087958479130, guid: f10c5be8e4bc3994b98365072b0ed99f,
@@ -5366,7 +5368,7 @@ PrefabInstance:
     - target: {fileID: 2719558574996011610, guid: f10c5be8e4bc3994b98365072b0ed99f,
         type: 3}
       propertyPath: m_Value
-      value: 800
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 2719558574996011610, guid: f10c5be8e4bc3994b98365072b0ed99f,
         type: 3}

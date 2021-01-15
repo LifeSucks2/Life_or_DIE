@@ -121,7 +121,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   door: {fileID: 0}
   pv: {fileID: 0}
-  health: 50
+  health: 100
   damageSound: {fileID: 8300000, guid: 31b9bfacc282dec4f878eedbf7687270, type: 3}
   healthBarUI: {fileID: 2840431087958479130}
   slider: {fileID: 2719558574996011610}
@@ -6448,9 +6448,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 1
   m_MinValue: 0
-  m_MaxValue: 800
+  m_MaxValue: 50
   m_WholeNumbers: 0
-  m_Value: 800
+  m_Value: 50
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
