@@ -11,7 +11,14 @@ TagManager:
   - Bottle_Health
   - Bottle_Antitoxin
   - box_ammo
-  - ammo_pick_up
+  - ammo_picked_up
+  - LaborDoor3
+  - LaborDoor2
+  - LaborDoor1
+  - LaborDoor4
+  - LaborKey
+  - TextFuerLaborDoor4
+  - HintFuerLaborDoor
   layers:
   - Default
   - TransparentFX

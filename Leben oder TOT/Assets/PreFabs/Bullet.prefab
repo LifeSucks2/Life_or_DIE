@@ -123,3 +123,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d94b4351961b20b428b6058d441bcbb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gettingShootSound: {fileID: 8300000, guid: fbb884f970f45004caae5f6c5b63277f, type: 3}

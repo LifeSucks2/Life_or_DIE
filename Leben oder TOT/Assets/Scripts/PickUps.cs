@@ -1,11 +1,11 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PickUps : MonoBehaviour
 {
     [SerializeField] PlayerVitals pv;
-    [SerializeField] AudioClip pickupSound;
+    [SerializeField] AudioClip pickupSound, ammoPickupSound;
     [SerializeField] GameObject player;
     private int ammo1, tmp;
     private int magazin = 120;
@@ -36,16 +36,17 @@ public class PickUps : MonoBehaviour
             }
         }
         //Ammo Packs
-        if(other.tag == "ammo_pick_up"){
+        if(other.tag == "ammo_picked_up"){
+            print("ammo pickup");
             ammo1 = player.GetComponent<AutomaticGunScriptLPFP>().ammo;
-            ammo1 += 30;
+            ammo1 += 10;
             if(ammo1 > 120){
                 ammo1 = 120;
             }
             player.GetComponent<AutomaticGunScriptLPFP>().ammo = ammo1;
             player.GetComponent<AutomaticGunScriptLPFP>().totalAmmoText.text = ammo1.ToString();
+            AudioSource.PlayClipAtPoint(ammoPickupSound, Camera.main.transform.position);
             Destroy(other.gameObject);
         }
-        
    }
 }

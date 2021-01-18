@@ -14,6 +14,7 @@ public class DetectScript : MonoBehaviour
     public float timeToShoot = 1.3f;
     float orginaltime;
     public float walkSpeed = 4f;
+    [SerializeField] AudioClip shootSound;
     float tmp;
     // Start is called before the first frame update
     void Start(){
@@ -48,5 +49,7 @@ public class DetectScript : MonoBehaviour
         GameObject currentBullet = Instantiate(bullet,shootPoint.transform.position, shootPoint.transform.rotation);
         Rigidbody rig = currentBullet.GetComponent<Rigidbody>();
         rig.AddForce(transform.forward * shootSpeed, ForceMode.VelocityChange);
+        AudioSource.PlayClipAtPoint(shootSound, Camera.main.transform.position);
+        
     }
 }

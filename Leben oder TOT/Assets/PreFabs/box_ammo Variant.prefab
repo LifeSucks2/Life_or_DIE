@@ -1,19 +1,19 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!65 &2207348491208497324
+--- !u!65 &1398892932
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5625024384534871536}
+  m_GameObject: {fileID: 2924963496283583692}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.64052373, y: 0.30241036, z: 1.0763594}
-  m_Center: {x: 0.0066429176, y: 0.15336475, z: -0.0017785032}
---- !u!1001 &5625024384535015742
+  m_Size: {x: 0.6548816, y: 0.48843068, z: 1}
+  m_Center: {x: 0.054183044, y: 0.2090559, z: 5.6286234e-16}
+--- !u!1001 &2924963496283437058
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -22,19 +22,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 183502, guid: 4656138d9606a80408030bdc231b1233, type: 3}
       propertyPath: m_Name
-      value: box_ammo
+      value: box_ammo Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 183502, guid: 4656138d9606a80408030bdc231b1233, type: 3}
+      propertyPath: m_TagString
+      value: ammo_picked_up
       objectReference: {fileID: 0}
     - target: {fileID: 461146, guid: 4656138d9606a80408030bdc231b1233, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 75.96
+      value: 76.414474
       objectReference: {fileID: 0}
     - target: {fileID: 461146, guid: 4656138d9606a80408030bdc231b1233, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.89
+      value: 3.880005
       objectReference: {fileID: 0}
     - target: {fileID: 461146, guid: 4656138d9606a80408030bdc231b1233, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -13.93
+      value: -14.83
       objectReference: {fileID: 0}
     - target: {fileID: 461146, guid: 4656138d9606a80408030bdc231b1233, type: 3}
       propertyPath: m_LocalRotation.x
@@ -86,9 +90,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4656138d9606a80408030bdc231b1233, type: 3}
---- !u!1 &5625024384534871536 stripped
+--- !u!1 &2924963496283583692 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 183502, guid: 4656138d9606a80408030bdc231b1233,
     type: 3}
-  m_PrefabInstance: {fileID: 5625024384535015742}
+  m_PrefabInstance: {fileID: 2924963496283437058}
   m_PrefabAsset: {fileID: 0}
