@@ -9,6 +9,7 @@ public class MenuScript : MonoBehaviour
 {
     public static bool isGameStarted = true;
     public static bool isGamePaused = false;
+    public bool gamePause = false;
     public static bool GameResumer = false;
     public static bool isBuyMenuOpened = false;
     private int ammo1;
@@ -95,6 +96,13 @@ public class MenuScript : MonoBehaviour
                 myText.enabled = true;
             }
         }
+    }
+
+    public bool getIsGamePaused(){
+        return isGamePaused;
+    }
+    public bool getIsBuyMenuOpened(){
+        return isBuyMenuOpened;
     }
 
     // Buy Menu START
@@ -184,7 +192,7 @@ public class MenuScript : MonoBehaviour
     {
         pauseMenu.SetActive(true);
         Time.timeScale = 0f;
-        isGamePaused = false;
+        //isGamePaused = false;
         GameResumer = true;
         GetComponent<ParticleSystem>().Pause();
     }
