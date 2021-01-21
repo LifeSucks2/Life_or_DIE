@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PickUps : MonoBehaviour
 {
     [SerializeField] PlayerVitals pv;
     [SerializeField] AudioClip pickupSound, ammoPickupSound;
     [SerializeField] GameObject player;
+    [SerializeField] Text hint;
+
     private int ammo1, tmp;
     private int magazin = 120;
 
@@ -37,16 +41,22 @@ public class PickUps : MonoBehaviour
         }
         //Ammo Packs
         if(other.tag == "ammo_picked_up"){
-            print("ammo pickup");
+            //print("ammo pickup");
             ammo1 = player.GetComponent<AutomaticGunScriptLPFP>().ammo;
             ammo1 += 10;
-            if(ammo1 > 120){
-                ammo1 = 120;
+            if(ammo1 > magazin){
+                ammo1 = magazin;
             }
             player.GetComponent<AutomaticGunScriptLPFP>().ammo = ammo1;
             player.GetComponent<AutomaticGunScriptLPFP>().totalAmmoText.text = ammo1.ToString();
             AudioSource.PlayClipAtPoint(ammoPickupSound, Camera.main.transform.position);
             Destroy(other.gameObject);
+        }
+        if(other.tag == "Bottle_Mana"){
+            hint.text = "Herzlichen Glückwunsch, du has das Spiel durchgespielt";
+            hint.gameObject.SetActive(true);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            
         }
    }
 }

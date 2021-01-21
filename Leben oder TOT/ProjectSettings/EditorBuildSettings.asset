@@ -21,6 +21,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Flur.unity
     guid: c5179221e0538c647a4db02b9e4871bd
   - enabled: 1
+    path: Assets/Scenes/LastLevel.unity
+    guid: a2748bf3931f3a649bc47d126b4b9b43
+  - enabled: 1
+    path: Assets/Scenes/BossFight.unity
+    guid: 3b540b5ae727a4e49b515b5af4d061ca
+  - enabled: 1
     path: Assets/Scenes/Credits.unity
     guid: ab3e6a5467676d043ae8d1c7c6503cb2
   m_configObjects: {}

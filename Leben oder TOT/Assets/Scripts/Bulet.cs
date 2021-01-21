@@ -21,7 +21,9 @@ public class Bulet : MonoBehaviour
             pv = col.gameObject.GetComponent<PlayerVitals>();
             pv.TakeDamage(10f);
             AudioSource.PlayClipAtPoint(gettingShootSound, Camera.main.transform.position, 5f);
+            Destroy(gameObject);
             //print("damage taken");
         }
+        
     }
 }

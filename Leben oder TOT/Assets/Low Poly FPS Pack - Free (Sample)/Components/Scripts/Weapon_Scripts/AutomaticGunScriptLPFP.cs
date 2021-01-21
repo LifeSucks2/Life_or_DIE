@@ -597,9 +597,6 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
                     //print(target.transform.tag);
                     target.TakeDamage(damage);
                 }
-                else{
-                    print("Target == null");
-                }
             }
         }
 }

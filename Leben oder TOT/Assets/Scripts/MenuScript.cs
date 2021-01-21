@@ -188,11 +188,11 @@ public class MenuScript : MonoBehaviour
         isGamePaused = true;
     }
 
-    void PauseGame()
+    public void PauseGame()
     {
         pauseMenu.SetActive(true);
         Time.timeScale = 0f;
-        //isGamePaused = false;
+        isGamePaused = true;
         GameResumer = true;
         GetComponent<ParticleSystem>().Pause();
     }

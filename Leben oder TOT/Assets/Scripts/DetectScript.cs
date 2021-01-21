@@ -6,7 +6,7 @@ public class DetectScript : MonoBehaviour
 {
     GameObject target;
     public Transform enemy;
-    const float seeingDistance = 40;
+    const float seeingDistance = 100f;
     const float stopingDistance = 12;
     public GameObject bullet;
     public GameObject shootPoint;
@@ -20,7 +20,7 @@ public class DetectScript : MonoBehaviour
     void Start(){
         orginaltime = timeToShoot;
         target = GameObject.FindGameObjectWithTag("Player");
-        print(target.tag);
+        //print(target.tag);
     }
 
     // Update is called once per frame

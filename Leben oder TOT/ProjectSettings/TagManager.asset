@@ -14,11 +14,20 @@ TagManager:
   - ammo_picked_up
   - LaborDoor3
   - LaborDoor2
-  - LaborDoor1
   - LaborDoor4
   - LaborKey
   - TextFuerLaborDoor4
   - HintFuerLaborDoor
+  - LaborDoor1
+  - "R\xE4tsel"
+  - wrongAnswer
+  - Hint
+  - DeactivateText
+  - KeyRoomExit
+  - GetTheAntitoxinDoor
+  - Bottle_Mana
+  - FlurExitDoor
+  - Tipp
   layers:
   - Default
   - TransparentFX

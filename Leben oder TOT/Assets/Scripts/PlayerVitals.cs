@@ -56,15 +56,7 @@ public class PlayerVitals : MonoBehaviour
             {
                 ms.callME();
             }
-
         }
-        else{
-            Debug.Log("ali");
-        }
-
-
-
-
     }
     private void PauseMenu(){
         if (Input.GetKeyDown(KeyCode.Escape)) {
