@@ -61,18 +61,22 @@ public class MenuScript : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.M))
             {
                 points.text = pv.points.ToString();
+                
                 // Never allow the Buy menu to open if the game is paused
                 if (isGamePaused)  return;
                 
                 else if (!isGamePaused && !isBuyMenuOpened)
                 {
                     isBuyMenuOpened = true;
+                    Time.timeScale = 0f;
+                    GetComponent<ParticleSystem>().Pause();
                     buyMenu.SetActive(true);
                     Screen.lockCursor = false;
                 }
                 else if (!isGamePaused && isBuyMenuOpened)
                 {
                     isBuyMenuOpened = false;
+                    Time.timeScale = 1f;
                     buyMenu.SetActive(false);
                     Screen.lockCursor = true;
                 }
@@ -113,7 +117,7 @@ public class MenuScript : MonoBehaviour
            hpB.interactable = true;
            pv.points -= 500;
            points.text = pv.points.ToString();
-           posionLevel.value -= 0.5f;
+           pv.health += 30f;
         }
     }
 

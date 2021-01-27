@@ -16,12 +16,13 @@ public class FirstRoomTextChange : MonoBehaviour
 
     private bool[] Ukeys = new bool[8];
     private bool[] rooms = new bool[12];
+    //[SerializeField] GameObject healthAndAmmo;
 
     // Start is called before the first frame update
     void Start()
     {
         //welcome Screen
-        myText.text = "Press W to Move Foreward";
+        myText.text = "Drücke W um vorwärts zu gehen";
         rooms[0] = true;
     }
 
@@ -97,7 +98,7 @@ public class FirstRoomTextChange : MonoBehaviour
        if (playerX >= 115f && playerY >= -64f && playerZ >= 265f)
        {
            rooms[10] = false;
-           myText.text = "To repeat the tutorial go to the left portal. If you want to start the game go to the right one.";
+           myText.text = "Um die Einführung zu wiederholen, begebe dich links zum Protal. Wenn du weiter mit dem Spiel fortsetzten willst, dann begebe dich rechts.";
        }
     }
 
@@ -115,31 +116,31 @@ public class FirstRoomTextChange : MonoBehaviour
         {
            if (!Ukeys[0] && Input.GetKey(KeyCode.W))
             {
-                myText.text = "Press S to Backwards";
+                myText.text = "Drücke S um rückwärts zu gehen.";
                 Ukeys[0] = true;
             }
             
             if (Ukeys[0] && !Ukeys[1] && Input.GetKey(KeyCode.S))
             {
-                myText.text = "Press A to Left";
+                myText.text = "Drücke A für links.";
                 Ukeys[1] = true;
             }
 
             if (Ukeys[0] && Ukeys[1] && !Ukeys[2] && Input.GetKey(KeyCode.A))
             {
-                myText.text = "Press D to Right";
+                myText.text = "Drücke D für rechts.";
                 Ukeys[2] = true;
             }
 
             if (Ukeys[0] && Ukeys[1] && Ukeys[2] && !Ukeys[3] && Input.GetKey(KeyCode.D))
             {
-                myText.text = "Press Space to Jump";
+                myText.text = "Drücke Space zum springen.";
                 Ukeys[3] = true;
             }
             
             if (Ukeys[0] && Ukeys[1] && Ukeys[2] && Ukeys[3] && !Ukeys[4] && Input.GetKey(KeyCode.Space))
             {
-                myText.text = "Congratulations. Proceed to the next room";
+                myText.text = "Glückwunsch, jetzt begebe dich weiter.";
                 Ukeys[4] = true;
             } 
         }   
@@ -149,51 +150,49 @@ public class FirstRoomTextChange : MonoBehaviour
         //headerText.enabled = false;
         visited = true;
         HUD.SetActive (true);
-        myText.text = "These are your indicators";
+        myText.text = "Das sind deine Indikatoren";
     }
 
     void Room3()
     {
-        myText.text = "You have 500 HP. The green one will rise slowly." +
-        " It shows the amount of poison you have in your system. Be careful you dont want it to be at max level";
+        myText.text = "Das Rote ist deine Gesundheitsanzeige. Das Grüne ist deine Gift Anzeige." +
+        " Das Gift vermehrt sich in deinem Körper, vorallem wenn du dich bewegst, vermehrt sich der Girftinhalt in deinem Körper.";
     }
 
     void Room4()
     {
-        myText.text = "As you may have already noticed: You have a weapon. To shoot use your left key on your Mouse."
-        + "Dont waste your ammo. If you run out of ammo you may be in danger. To reload your weapon press R";
+        myText.text = "Du hast ein Sturmgewehr zu Verfügung. Mit der linken Maustaste kannst du ballern. Mit der rechten Maustaste kannst du Zielen. Verschwende keine Munition. Mit der Taste R kannst du nachladen.";
     }
 
     void Room6()
     {
-        myText.text = "Here is your first test. Kill the enemies. They will give you Points .. ";
+        myText.text = "Dein erster Test. Töte deine Feinde und kassiere Punkte. ";
     }
     
     void Room7()
     {
-        myText.text = "Each enemy will give 100 Points. Spend them wisely. What can you buy ? Press M. " + 
-        "If you are ready shoot the door.";
+        myText.text = "Jeder kill ist 100 Punkte wert. Drücke M um in den Shop zu erlangen und kaufe dir Healthpacks oder Munitionen. " + 
+        "Wenn du fertig bist, töte die weiteren zwei Gegner aber Achtung, die schießen auch zurück. Gegner können durch Wände sehen und schießen. Anschließend schieße auf die Türe.";
     }
 
     void Room8()
     {
-        myText.text = "Kill the enemies or walk past them. But there is the risk of not getting the ammo / healthpack which are hidden in the room. Your call..";
+        myText.text = "Deine Giftanzeige erhöht sich und wenn die kommplett auf 100% ist, dann stirbst du. Nehme die grünen Pickups, um den Giftgehalt zu verringern. Nehme die roten Pickups um deine Gesundheitsanzeige zu vergrößern. In den Boxen sind Munitionen enthaletn.";
     }
 
     void Room9()
     {
-        myText.text = "Dont rely on the ammo / healthpack you may find in the rooms. They might not be enough for your survival.";
+        myText.text = "Munitionen, Medizinpacks und Healthpacks sind in den räumer verteilt. Es kann sein das die nicht ausreichen, daher kannst du dir im shop auch welche kaufen.";
     }
 
     void Room10()
     {
-        myText.text = "To escape from a room, you need to kill the enemies and the door will open. If the door is already open you can leave the room straight away" + 
-        " but will it be a good strategy ?";
+        myText.text = "";
     }
 
     void Room11()
     {
-        myText.text = "Congratulations you finished the tutorial which means that you are fully prepared and ready.";
+        myText.text = "Du hast den Turtorial erfolgreich absolviert. Jetzt bist du bereit für das Spiel.";
     }
 
 }

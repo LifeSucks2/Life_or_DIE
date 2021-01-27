@@ -10,7 +10,7 @@ public class Door : MonoBehaviour
     [SerializeField] MenuScript ms;
     [SerializeField] Text hint;
     [SerializeField] AudioClip pickupSound;
-    [SerializeField] PlayerVitals pv; 
+   // [SerializeField] PlayerVitals pv; 
     void OnTriggerEnter(Collider other)
     {
         if (other.tag == "LaborDoor3")

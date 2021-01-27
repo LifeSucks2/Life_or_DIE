@@ -6,7 +6,7 @@ public class DetectScript : MonoBehaviour
 {
     GameObject target;
     public Transform enemy;
-    const float seeingDistance = 100f;
+    [SerializeField] float seeingDistance = 70f;
     const float stopingDistance = 12;
     public GameObject bullet;
     public GameObject shootPoint;

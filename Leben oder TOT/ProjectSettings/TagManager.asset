@@ -28,6 +28,7 @@ TagManager:
   - Bottle_Mana
   - FlurExitDoor
   - Tipp
+  - healthAndAmmoText
   layers:
   - Default
   - TransparentFX

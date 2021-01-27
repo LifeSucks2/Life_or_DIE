@@ -6746,8 +6746,6 @@ MonoBehaviour:
   ms: {fileID: 0}
   hint: {fileID: 0}
   pickupSound: {fileID: 0}
-  lastFightSound: {fileID: 0}
-  pv: {fileID: 0}
 --- !u!65 &721525424
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10283,10 +10281,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ms: {fileID: 2141995957}
-  hint: {fileID: 0}
+  hint: {fileID: 1811144039}
   pickupSound: {fileID: 8300000, guid: 9e6cba3971232154ba6db57411195e43, type: 3}
-  lastFightSound: {fileID: 0}
-  pv: {fileID: 0}
 --- !u!1 &1060184037
 GameObject:
   m_ObjectHideFlags: 0
@@ -18720,7 +18716,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1909405235
 RectTransform:
   m_ObjectHideFlags: 0
@@ -26072,6 +26068,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Assault_Rifle_01_FPSController Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 4436615092705618019, guid: b3269bb3670096448b6aaf04a431ec67,
+        type: 3}
+      propertyPath: walkingSpeed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4436615092705618019, guid: b3269bb3670096448b6aaf04a431ec67,
+        type: 3}
+      propertyPath: runningSpeed
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 4436615092705618019, guid: b3269bb3670096448b6aaf04a431ec67,
+        type: 3}
+      propertyPath: mouseSensitivity
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4546232753139893957, guid: b3269bb3670096448b6aaf04a431ec67,
         type: 3}

@@ -453,12 +453,13 @@ RectTransform:
   m_Children:
   - {fileID: 1548567612}
   - {fileID: 1471005336}
+  - {fileID: 1203697277}
   m_Father: {fileID: 1236331199}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -447}
+  m_AnchoredPosition: {x: 0, y: -610}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1150100591
@@ -471,7 +472,7 @@ Animator:
   m_GameObject: {fileID: 1150100589}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 7b6e1ae0c290ff7449b4f8994615ddc9, type: 2}
+  m_Controller: {fileID: 9100000, guid: 46ebbd4b4c0ded14eaef49b2b23548bd, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -480,6 +481,88 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1 &1203697276
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1203697277}
+  - component: {fileID: 1203697279}
+  - component: {fileID: 1203697278}
+  m_Layer: 5
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1203697277
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1203697276}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1150100590}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 94.116, y: -1393.77}
+  m_SizeDelta: {x: 696.2324, y: 259.54016}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1203697278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1203697276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 1
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: "\n\n\n\nVielen Dank f\xFCrs Spielen. \n\nDieses Projekt ist mit Unity
+    im Rahmen des Informatikstudiums an der FH Aachen von Ali Coban, Bekan Can Cevik
+    und Hakan Kanak als Gruppenarbeit f\xFCr das Modul Game Design entstanden. \n\nGro\xDFen
+    Dank gehen auch an Herr Christian Werner, der das Modul Game Design betreut.
+    Er hat uns das ganze erm\xF6glicht. "
+--- !u!222 &1203697279
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1203697276}
+  m_CullTransparentMesh: 0
 --- !u!1 &1217702136
 GameObject:
   m_ObjectHideFlags: 0
@@ -558,6 +641,7 @@ GameObject:
   - component: {fileID: 1236331198}
   - component: {fileID: 1236331197}
   - component: {fileID: 1236331196}
+  - component: {fileID: 1236331200}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -646,6 +730,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1236331200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1236331195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e44f734474758548a0af084183936f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delayBeforeLoad: 100
 --- !u!1 &1410914332
 GameObject:
   m_ObjectHideFlags: 0
@@ -751,8 +848,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 241.6, y: -549.2}
-  m_SizeDelta: {x: 401.26477, y: 1406.3497}
+  m_AnchoredPosition: {x: 241.6, y: -551.7}
+  m_SizeDelta: {x: 401.26477, y: 1411.2343}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1471005337
 MonoBehaviour:
@@ -794,7 +891,8 @@ MonoBehaviour:
     Free Metal Materials\n\tfrom Nobiax / Yughues\n\n\rPillar Concrete Texture\n\tfrom
     Pixel Indie\n\nMetal Floor (Rust Low) Texture\n\tfrom Pixel Indie\n\nDoctor's
     Office\n\tfrom Brick Project Studio\n\n\n\n\nActionable\n\tComposer: Benjamin
-    Tissot \n\nDeep Blue\n\tComposer: Benjamin Tissot \n\n\n\n\nNew Ammo & Gun Pickup
+    Tissot \n\nDeep Blue\n\tComposer: Benjamin Tissot \n\nBadass\n\tComposer: Benjamin
+    Tissot\n\nSci Fi\n\tComposer: Benjamin Tissot\n\n\n\n\nNew Ammo & Gun Pickup
     Sound\n\tfrom www.gamebanana.com\n\nHealth Pickup\n\tfrom freesound.org\n\nShoot
     Sound\n\tfrom www.partnersinrhyme.com\n\n\"autsh\" Sound \n\tfrom www.partnersinrhyme.com\n\n\n\n\nIntro
     Video from \"The Forest\"\n"
@@ -840,8 +938,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -154, y: -543.2}
-  m_SizeDelta: {x: 200, y: 1394.512}
+  m_AnchoredPosition: {x: -154, y: -551.62964}
+  m_SizeDelta: {x: 200, y: 1411.375}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1548567613
 MonoBehaviour:
@@ -946,6 +1044,12 @@ MonoBehaviour:
 
 
 
+
+
+
+
+
+
     SFX
 
 
@@ -962,7 +1066,7 @@ MonoBehaviour:
 
 
 
-    Videos'
+    Video'
 --- !u!222 &1548567614
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -27,9 +27,6 @@ public class PlayerVitals : MonoBehaviour
 
     void Update()
     {
-       /*  PauseMenu();
-        ResumeGame();
-        print(ms.gamePause); */
         if (!(MenuScript.isGamePaused || MenuScript.isBuyMenuOpened))
         {
             poisen += 0.0001f;
@@ -37,6 +34,9 @@ public class PlayerVitals : MonoBehaviour
             if (health <= maxHealth)
             {
                 playerHealth.value = health;
+            }
+            if(poisen <= 1f){
+                Toxin.value = poisen;
             }
             if (poisen <= 1f)
             {
@@ -56,19 +56,6 @@ public class PlayerVitals : MonoBehaviour
             {
                 ms.callME();
             }
-        }
-    }
-    private void PauseMenu(){
-        if (Input.GetKeyDown(KeyCode.Escape)) {
-            pauseMenu = true;
-            pauseisPressed = true;
-        }
-    }
-
-    private void ResumeGame(){
-        if(pauseisPressed == true){
-            pauseisPressed = false;
-            pauseMenu = false;
         }
     }
     public void TakeDamage(float amount)

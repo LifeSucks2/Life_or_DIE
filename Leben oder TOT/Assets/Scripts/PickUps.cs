@@ -18,11 +18,11 @@ public class PickUps : MonoBehaviour
         //Health Packs
         if(pv.health < pv.maxHealth){
             if(other.tag == "Bottle_Health"){
-                if(pv.health > 190f){
+                if(pv.health > 180f){
                     pv.health = pv.maxHealth;
                 }
                 else{
-                    pv.health += 10f;
+                    pv.health += 20f;
                 }
             AudioSource.PlayClipAtPoint(pickupSound, Camera.main.transform.position);
             Destroy(other.gameObject);
@@ -55,8 +55,13 @@ public class PickUps : MonoBehaviour
         if(other.tag == "Bottle_Mana"){
             hint.text = "Herzlichen Glückwunsch, du has das Spiel durchgespielt";
             hint.gameObject.SetActive(true);
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-            
+            AudioSource.PlayClipAtPoint(pickupSound, Camera.main.transform.position);
+            Destroy(other.gameObject);
+            StartCoroutine(waitForSeconds());
         }
    }
+    IEnumerator waitForSeconds(){
+        yield return new WaitForSeconds(5);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
 }
